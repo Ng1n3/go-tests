@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -30,7 +31,13 @@ func main() {
 	fmt.Println(users)
 
 	// your code goes here
-  
+	bs, err := json.Marshal(users)
+	if err != nil {
+		fmt.Println("there was an error marshalling the json", err)
+		return
+	}
+
+	fmt.Println(string(bs))
 }
 
 /*
