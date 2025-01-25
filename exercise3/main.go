@@ -1,7 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
+	"strings"
 )
 
 type user struct {
@@ -47,9 +50,18 @@ func main() {
 
 	users := []user{u1, u2, u3}
 
-	fmt.Println(users)
+	// fmt.Println(users)
 
 	// your code goes here
+  bs, err := json.Marshal(users)
+  if err != nil {
+    fmt.Println("there was an error marshalling the json", err)
+    return
+  }
+  fmt.Println(string(bs))
+
+  err = json.NewEncoder(os.Stdout).Encode(users)
+  // dec := json.NewDecoder((strings.NewReader(string(bs))))
 
 }
 
