@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -15,6 +16,9 @@ func main() {
 	fmt.Println(xs)
 	// sort xs
 	fmt.Println(xs)
+
+  sort.Ints(xi)
+  sort.Strings(xs)
 }
 
 /*
